@@ -77,6 +77,21 @@ export default function App() {
             <br />
             <br />
           </div>
+          <footer>
+            <a
+              href="https://github.com/Aylhenia/react-weather-app"
+              target="_blank noreferrer"
+            >
+              Open-source code
+            </a>{" "}
+            by{" "}
+            <a
+              href="https://laiafrontend.netlify.app/"
+              target="_blank noreferrer"
+            >
+              LCA
+            </a>
+          </footer>
         </div>
       </div>
     </div>

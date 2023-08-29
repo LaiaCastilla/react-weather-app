@@ -89,3 +89,12 @@
   padding-top: 0px;
   font-size: 12px;
 }
+.App footer a {
+  color: #013348;
+  text-decoration: none;
+  transition: all 200ms ease-in-out;
+}
+.App footer a:hover {
+  text-shadow: 8px 5px 11px rgba(39, 142, 163, 0.4);
+  color: #278ea3;
+}
