@@ -46,12 +46,6 @@ export default function Weather() {
               </div>
             </div>
             <div className="header-right col-6">
-              <div className="actual-maxminT maxminT">
-                <span className="maxT">25</span>
-                <span className="max-degree degree">°C</span>/
-                <span className="minT">17</span>
-                <span className="min-degree degree">°C</span>
-              </div>
               <div className="current-temperature">
                 <span className="current-temp"> 23</span>
                 <span className="current-unit degree">°C</span>
@@ -64,9 +58,6 @@ export default function Weather() {
               </div>
 
               <div className="extra-information">
-                <div className="precipitation">
-                  Precipitation: <span>0</span>%
-                </div>
                 <div className="humidity">
                   Humidity: <span>65</span>%
                 </div>
