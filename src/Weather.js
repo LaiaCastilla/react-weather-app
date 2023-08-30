@@ -11,7 +11,7 @@ export default function Weather() {
         <div className="card">
           <form>
             <div className="row">
-              <span className="mb-3 col-9">
+              <span className="mb-3 col-8 col-md-9  ">
                 <input
                   type="text"
                   className="form-control shadow-sm"
@@ -25,7 +25,7 @@ export default function Weather() {
                   Search
                 </button>
               </span>
-              <span className="col-1 text-center">
+              <span className="col-2 col-md-1 text-end">
                 <i className="fa-solid fa-location-dot location"></i>
               </span>
             </div>
