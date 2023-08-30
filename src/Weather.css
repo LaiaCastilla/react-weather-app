@@ -1,0 +1,114 @@
+.Weather .container {
+  position: relative;
+  z-index: 1;
+  top: 80px;
+  display: block;
+
+  font-family: "Amatic SC", cursive;
+  font-family: "Poppins", sans-serif;
+}
+
+.Weather .card {
+
+
+  padding: 30px 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  border: 0;
+  color: rgb(16, 48, 48);
+  /* background-color: rgba(255, 255, 255, 0.239); */
+}
+.Weather .form {
+  background-color: white;
+}
+.Weather .btn {
+  color: white;
+  background: #389c9c;
+  transition: all 200ms ease-in-out;
+}
+.Weather .btn:hover {
+  background: teal;
+}
+.Weather .location {
+  color: teal;
+  font-size: 35px;
+  transition: all 150ms ease-in-out;
+}
+.Weather .location:hover {
+  color: rgb(5, 109, 109);
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.Weather .day0-weather {
+  max-width: 40%;
+  position: absolute;
+  margin-left: 100px;
+
+  z-index: 0;
+}
+.Weather img .card-img {
+  position: relative;
+  z-index: 2;
+  top: 40px;
+}
+.Weather .header-left {
+  font-size: 40px;
+  line-height: 30px;
+  font-weight: 300px;
+  z-index: 2;
+}
+.Weather .day-time {
+  font-size: 12px;
+}
+.Weather .current-weather-description {
+  font-size: 12px;
+}
+.Weather .header-right {
+  text-align: right;
+  line-height: 30px;
+}
+.Weather .alternative-units {
+  position: relative;
+  top: -18px;
+  font-size: 12px;
+}
+.Weather .alternative-degree {
+  text-decoration: none;
+  font-size: 14px;
+}
+.Weather .actual-maxminT {
+  font-size: 14px;
+}
+.Weather .maxminT {
+  font-weight: 200;
+}
+.Weather .maxT {
+  font-weight: 500;
+}
+.Weather .max-degree {
+  font-weight: 500;
+}
+.Weather .current-temperature {
+  font-size: 40px;
+  font-weight: 400;
+}
+.Weather .extra-information {
+  line-height: 15px;
+  padding-top: 0px;
+  font-size: 12px;
+}
+.Weather footer {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+.Weather footer a {
+  color: #013348;
+  text-decoration: none;
+  transition: all 200ms ease-in-out;
+}
+.Weather footer a:hover {
+  text-shadow: 8px 5px 11px rgba(39, 142, 163, 0.4);
+  color: #278ea3;
+}

@@ -22,7 +22,7 @@ export default function Daytime() {
   }
   return (
     <div className="Daytime">
-      {day} {hour}:{minutes}
+      Last updated: {day} {hour}:{minutes}
     </div>
   );
 }
