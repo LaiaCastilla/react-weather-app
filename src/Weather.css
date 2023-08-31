@@ -103,3 +103,9 @@
   text-shadow: 8px 5px 11px rgba(39, 142, 163, 0.4);
   color: #278ea3;
 }
+
+.Weather .loading {
+  display: block;
+  margin: 0 auto;
+  
+}

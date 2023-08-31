@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import { Oval } from "react-loader-spinner";
 
 // import { Oval } from "react-loader-spinner";
 
@@ -87,20 +88,28 @@ export default function Weather(props) {
   } else {
     searchWeather();
     return (
-      <p>
-        Loading...
-        {/* <Oval
-          height={80}
-          width={80}
-          color="#4fa94d"
+      <p
+        className="loading mt-5 text-center"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+        }}
+      >
+        <br />
+        <Oval
+          height={200}
+          width={200}
+          color="#389c9c"
           wrapperStyle={{}}
           wrapperClass=""
           visible={true}
           ariaLabel="oval-loading"
-          secondaryColor="#4fa94d"
+          secondaryColor="##389c9c"
           strokeWidth={2}
           strokeWidthSecondary={2}
-        /> */}
+        />
       </p>
     );
   }
