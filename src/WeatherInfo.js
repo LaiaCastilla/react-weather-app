@@ -19,7 +19,7 @@ export default function WeatherInfo(props) {
         <div className="header-right col-6">
           <div className="current-temperature">
             <span className="current-temp"> {props.data.temperature}</span>
-            <span className="current-unit degree">°C </span>
+            <span className="current-unit degree">°C :D</span>
             <span className="alternative-units">
               |{" "}
               <a className="alternative-degree" href="/">
