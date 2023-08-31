@@ -20,6 +20,7 @@ export default function Weather(props) {
       temperature: Math.round(response.data.temperature.current),
       humidity: response.data.temperature.humidity,
       wind: Math.round(response.data.wind.speed),
+      icon: response.data.condition.icon,
     });
 
     console.log(response);
@@ -89,7 +90,7 @@ export default function Weather(props) {
     searchWeather();
     return (
       <p
-        className="loading mt-5 text-center"
+        className="loading"
         style={{
           display: "flex",
           alignItems: "center",

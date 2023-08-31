@@ -1,12 +1,11 @@
 import React from "react";
-import sunCloud from "./images/sun-cloud.png";
+import WeatherIcon from "./WeatherIcon";
 import Daytime from "./Daytime";
 
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <div className="header row">
-        <img className="card-img day0-weather" src={sunCloud} alt="SunCloud" />
         <div className="header-left col-6">
           <div className="day-time">
             <Daytime />
@@ -17,6 +16,7 @@ export default function WeatherInfo(props) {
           </div>
         </div>
         <div className="header-right col-6">
+          <WeatherIcon code={props.data.icon} />
           <div className="current-temperature">
             <span className="current-temp"> {props.data.temperature}</span>
             <span className="current-unit degree">°C</span>
