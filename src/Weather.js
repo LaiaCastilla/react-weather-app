@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import sunCloud from "./images/sun-cloud.png";
-import Daytime from "./Daytime";
+import WeatherInfo from "./WeatherInfo";
+
+// import { Oval } from "react-loader-spinner";
 
 import "./Weather.css";
 
@@ -47,48 +48,7 @@ export default function Weather(props) {
                 </span>
               </div>
             </form>
-            <div className="header row">
-              <img
-                className="card-img day0-weather"
-                src={sunCloud}
-                alt="SunCloud"
-              />
-              <div className="header-left col-6">
-                <div className="day-time">
-                  <Daytime />
-                </div>
-                <div className="city">{weatherData.city}</div>
-                <div className="current-weather-description ">
-                  {weatherData.description}
-                </div>
-              </div>
-              <div className="header-right col-6">
-                <div className="current-temperature">
-                  <span className="current-temp">
-                    {" "}
-                    {weatherData.temperature}
-                  </span>
-                  <span className="current-unit degree">°C</span>
-                  <span className="alternative-units">
-                    |{" "}
-                    <a className="alternative-degree" href="/">
-                      °F
-                    </a>
-                  </span>
-                </div>
-
-                <div className="extra-information">
-                  <div className="humidity">
-                    Humidity: <span>{weatherData.humidity}</span>%
-                  </div>
-                  <div className="wind">
-                    Wind: <span> {weatherData.wind}</span> km/h
-                  </div>
-                </div>
-              </div>
-            </div>
-            <br />
-            <br />
+            <WeatherInfo data={weatherData} />
           </div>
           <footer>
             <a
@@ -110,9 +70,24 @@ export default function Weather(props) {
     );
   } else {
     const apiKey = "fdt0a6ab6o2733f48fa51ccaa0c76a01";
-
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
-    return <p>Loading...</p>;
+    return (
+      <p>
+        Loading
+        {/* <Oval
+          height={80}
+          width={80}
+          color="#4fa94d"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel="oval-loading"
+          secondaryColor="#4fa94d"
+          strokeWidth={2}
+          strokeWidthSecondary={2}
+        /> */}
+      </p>
+    );
   }
 }
