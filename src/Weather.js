@@ -4,8 +4,6 @@ import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import { Oval } from "react-loader-spinner";
 
-// import { Oval } from "react-loader-spinner";
-
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -26,19 +24,21 @@ export default function Weather(props) {
       wind: Math.round(response.data.wind.speed),
       icon: response.data.condition.icon,
     });
+    const apiKey = "fdt0a6ab6o2733f48fa51ccaa0c76a01";
+    let apiForecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+    axios.get(apiForecastUrl).then(handleForecastResponse);
   }
   function handleForecastResponse(response) {
     setForecastData({
       ready: true,
-      response: response.data,
+      response: response.data.daily,
     });
   }
   function searchWeather() {
     const apiKey = "fdt0a6ab6o2733f48fa51ccaa0c76a01";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-    let apiForecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+
     axios.get(apiUrl).then(handleCurrentResponse);
-    axios.get(apiForecastUrl).then(handleForecastResponse);
   }
 
   function handleSubmit(event) {
