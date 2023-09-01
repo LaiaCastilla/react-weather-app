@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import { Oval } from "react-loader-spinner";
 
 // import { Oval } from "react-loader-spinner";
@@ -9,11 +10,14 @@ import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [forecastData, setForecastData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-  function handleResponse(response) {
+  function handleCurrentResponse(response) {
     setWeatherData({
       ready: true,
       city: response.data.city,
+      longitude: response.data.coordinates.longitude,
+      latitude: response.data.coordinates.latitude,
       description:
         response.data.condition.description.charAt(0).toUpperCase() +
         response.data.condition.description.slice(1),
@@ -22,13 +26,19 @@ export default function Weather(props) {
       wind: Math.round(response.data.wind.speed),
       icon: response.data.condition.icon,
     });
-
-    console.log(response);
+  }
+  function handleForecastResponse(response) {
+    setForecastData({
+      ready: true,
+      response: response.data,
+    });
   }
   function searchWeather() {
     const apiKey = "fdt0a6ab6o2733f48fa51ccaa0c76a01";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-    axios.get(apiUrl).then(handleResponse);
+    let apiForecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+    axios.get(apiUrl).then(handleCurrentResponse);
+    axios.get(apiForecastUrl).then(handleForecastResponse);
   }
 
   function handleSubmit(event) {
@@ -66,7 +76,9 @@ export default function Weather(props) {
                 </span>
               </div>
             </form>
+            <br />
             <WeatherInfo data={weatherData} />
+            <WeatherForecast data={forecastData.response} />
           </div>
           <footer>
             <a

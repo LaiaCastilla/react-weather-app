@@ -1,0 +1,21 @@
+.WeatherForecast {
+  text-align: center;
+  opacity: 0.8;
+}
+.WeatherForecast .forecast-day {
+  font-weight: 600;
+}
+.WeatherForecast .forecast-icon {
+  opacity: 0.7;
+  transition: all 200ms ease-in-out;
+}
+.WeatherForecast .forecast-icon:hover {
+  opacity: 1;
+}
+.WeatherForecast .maxT {
+  font-weight: 500;
+}
+.WeatherForecast .minT {
+  font-weight: 200;
+  margin-left: 5px;
+}

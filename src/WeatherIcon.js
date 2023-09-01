@@ -23,11 +23,11 @@ export default function WeatherIcon(props) {
     "mist-night": "FOG",
   };
   return (
-    <div className="day0-weather">
+    <div className={props.className}>
       <ReactAnimatedWeather
         icon={codeMapping[props.code]}
         color="#086C6D"
-        size={120}
+        size={props.size}
         animate={true}
       />
     </div>
