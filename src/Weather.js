@@ -73,12 +73,12 @@ export default function Weather(props) {
                     onChange={handleCityUpdate}
                   />
                 </span>
-                <span className="col-2 text-center">
+                <span className="col-2 text-end">
                   <button type="submit" className="btn shadow">
                     Search
                   </button>
                 </span>
-                <span className="col-2 col-md-1 text-end">
+                <span className="d-none d-md-block col-md-1 text-end">
                   <i
                     className="fa-solid fa-location-dot location"
                     onClick={activeGeolocation}
