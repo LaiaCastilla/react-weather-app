@@ -7,7 +7,7 @@ export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <div className="header row">
-        <div className="header-left col-6">
+        <div className="header-left col-12 col-sm-6">
           <div className="day-time">
             <Daytime />
           </div>
@@ -16,7 +16,7 @@ export default function WeatherInfo(props) {
             {props.data.description}
           </div>
         </div>
-        <div className="header-right col-6">
+        <div className="header-right col-12 col-sm-6">
           <WeatherIcon
             code={props.data.icon}
             size={120}

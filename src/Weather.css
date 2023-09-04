@@ -95,40 +95,45 @@
 }
 
 @media (max-width: 600px) {
-  .container {
+  .Weather .container {
     max-width: fit-content;
     margin: 0 auto;
   }
-  .card {
+  .Weather .card {
     max-width: 95%;
-    padding: 20px 5px;
+    padding: 20px 20px;
     margin: 0 auto;
   }
-  form {
+  .Weather form {
     font-size: 13px;
   }
-  .header-left {
+  .Weather .header-left {
     font-size: 30px;
+    text-align: center;
   }
-  .extra-information {
+  .Weather .header-right {
+    text-align: center;
+  }
+  .Weather .current-temperature {
+    margin-top: 20px;
+  }
+  .Weather .extra-information {
     font-size: 10px;
   }
-  .day-time {
+  .Weather .day-time {
     font-size: 10px;
   }
 
-  .day0-weather {
+  .Weather .day0-weather {
     max-width: 45%;
-    position: absolute;
-    margin-top: 20px;
-    margin-left: 85px;
+    position: relative;
+    margin: 0 auto;
     opacity: 60%;
     z-index: 0;
   }
-  .forecast {
-    font-size: 10px;
-  }
-  .signature {
-    font-size: 12px;
+
+  .Weather footer {
+    text-align: center;
+    margin-bottom: 100px;
   }
 }
