@@ -128,8 +128,6 @@
     max-width: 45%;
     position: relative;
     margin: 0 auto;
-    opacity: 60%;
-    z-index: 0;
   }
 
   .Weather footer {
