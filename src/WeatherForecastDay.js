@@ -3,13 +3,24 @@ import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherForecastDay(props) {
   function maxT() {
-    let temperature = Math.round(props.data.temperature.maximum);
+    let temperature;
+    if (props.unit === "celsius") {
+      temperature = Math.round(props.data.temperature.maximum);
+    } else {
+      temperature = Math.round((props.data.temperature.maximum * 9) / 5 + 32);
+    }
     return `${temperature}° `;
   }
   function minT() {
-    let temperature = Math.round(props.data.temperature.minimum);
+    let temperature;
+    if (props.unit === "celsius") {
+      temperature = Math.round(props.data.temperature.minimum);
+    } else {
+      temperature = Math.round((props.data.temperature.minimum * 9) / 5 + 32);
+    }
     return `${temperature}°`;
   }
+
   function day() {
     let date = new Date(props.data.time * 1000);
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];

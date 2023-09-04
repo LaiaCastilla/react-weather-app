@@ -23,7 +23,11 @@ export default function WeatherInfo(props) {
             className="day0-weather"
           />
           <div className="current-temperature">
-            <WeatherTemperature celsius={props.data.temperature} />
+            <WeatherTemperature
+              celsius={props.data.temperature}
+              unit={props.unit}
+              setUnit={props.setUnit}
+            />
           </div>
 
           <div className="extra-information">

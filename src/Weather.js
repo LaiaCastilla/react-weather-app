@@ -10,6 +10,8 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   const [city, setCity] = useState(props.defaultCity);
+  const [unit, setUnit] = useState("celsius");
+
   function handleCurrentResponse(response) {
     setWeatherData({
       ready: true,
@@ -69,8 +71,8 @@ export default function Weather(props) {
               </div>
             </form>
             <br />
-            <WeatherInfo data={weatherData} />
-            <WeatherForecast city={weatherData.city} />
+            <WeatherInfo data={weatherData} unit={unit} setUnit={setUnit} />
+            <WeatherForecast city={weatherData.city} unit={unit} />
           </div>
           <footer>
             <a

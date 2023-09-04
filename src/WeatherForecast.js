@@ -9,6 +9,10 @@ export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
 
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.city]);
+
   function handleResponse(response) {
     console.log(response.data.daily);
     setForecast(response.data.daily);
@@ -21,10 +25,6 @@ export default function WeatherForecast(props) {
     axios.get(apiForecastUrl).then(handleResponse);
   }
 
-  useEffect(() => {
-    setLoaded(false);
-  }, [props.city]);
-
   if (loaded) {
     return (
       <div className="WeatherForecast">
@@ -33,7 +33,7 @@ export default function WeatherForecast(props) {
             if (index < 6 && index > 0) {
               return (
                 <div className="col" key={index}>
-                  <WeatherForecastDay data={dailyForecast} />
+                  <WeatherForecastDay data={dailyForecast} unit={props.unit} />
                 </div>
               );
             } else {
