@@ -43,6 +43,19 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
+  function activeGeolocation(event) {
+    event.preventDefault();
+    function retrievePosition(position) {
+      const apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
+      let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}`;
+      axios.get(apiUrl).then(handleCurrentResponse);
+    }
+
+    navigator.geolocation.getCurrentPosition(retrievePosition);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -66,12 +79,16 @@ export default function Weather(props) {
                   </button>
                 </span>
                 <span className="col-2 col-md-1 text-end">
-                  <i className="fa-solid fa-location-dot location"></i>
+                  <i
+                    className="fa-solid fa-location-dot location"
+                    onClick={activeGeolocation}
+                  ></i>
                 </span>
               </div>
             </form>
             <br />
             <WeatherInfo data={weatherData} unit={unit} setUnit={setUnit} />
+
             <WeatherForecast city={weatherData.city} unit={unit} />
           </div>
           <footer>
