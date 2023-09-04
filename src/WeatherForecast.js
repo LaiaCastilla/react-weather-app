@@ -1,30 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-import WeatherIcon from "./WeatherIcon";
+import WeatherForecastDay from "./WeatherForecastDay";
+
 import "./WeatherForecast.css";
 
 export default function WeatherForecast(props) {
-  console.log(props.data);
-  return (
-    <div className="WeatherForecast">
-      <div className="row">
-        <div className="col">
-          <div className="forecast-day">Sat</div>
-          <div>
-            <a href="/">
-              <WeatherIcon
-                className="forecast-icon"
-                code="clear-sky-day"
-                size={70}
-              />
-            </a>
-          </div>
-          <div className="forecast-temp">
-            <span className="maxT">19°</span>
-            <span className="minT">10°</span>
-          </div>
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
+
+  function handleResponse(response) {
+    console.log(response.data.daily);
+    setForecast(response.data.daily);
+    setLoaded(true);
+  }
+
+  function load() {
+    const apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
+    let apiForecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.city}&key=${apiKey}`;
+    axios.get(apiForecastUrl).then(handleResponse);
+  }
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.city]);
+
+  if (loaded) {
+    return (
+      <div className="WeatherForecast">
+        <div className="row">
+          {forecast.map(function(dailyForecast, index) {
+            if (index < 6 && index > 0) {
+              return (
+                <div className="col" key={index}>
+                  <WeatherForecastDay data={dailyForecast} />
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    load();
+
+    return null;
+  }
 }
