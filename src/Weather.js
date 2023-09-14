@@ -93,16 +93,13 @@ export default function Weather(props) {
           </div>
           <footer>
             <a
-              href="https://github.com/Aylhenia/react-weather-app"
+              href="https://github.com/LaiaCastilla/react-weather-app"
               target="_blank noreferrer"
             >
               Open-source code
             </a>{" "}
             by{" "}
-            <a
-              href="https://laiafrontend.netlify.app/"
-              target="_blank noreferrer"
-            >
+            <a href="https://laiacastilla.com" target="_blank noreferrer">
               Laia
             </a>
           </footer>
